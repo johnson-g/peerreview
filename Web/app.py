@@ -2,15 +2,15 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import session
+import data
 app = Flask(__name__)
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
    if request.method == 'POST':
-      session['username'] = request.form['username']
-      return render_template("Version3.html")
+      return data.active()
    else:
-      return render_template("Login.html")
+      return render_template("Login2.html")
 
 @app.route("/eval", methods=['POST', 'GET'])
 def startup():
